@@ -2,11 +2,14 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = process.env.PORT || 4000;
 let Todo = require('./todo.model.js');
 
 app.use(cors());
+app.use(bodyParser.json());
+
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 if(process.env.NODE_ENV === 'production'){

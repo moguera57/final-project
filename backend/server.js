@@ -9,7 +9,7 @@ let Todo = require('./todo.model.js');
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
+mongoose.connect('mongodb://development:thisisatest1@ds119984.mlab.com:19984/heroku_7th1x771/todos', { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 const todoRoutes = express.Router();

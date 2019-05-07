@@ -20,15 +20,15 @@ export default class TodosList extends Component {
         this.state = {todos: []};
     }
 
-    componentDidMount() {
-        axios.get('mongodb://development:thisisatest1@ds119984.mlab.com:19984/heroku_7th1x771/todos')
-            .then(response => {
-                this.setState({ todos: response.data });
-            })
-            .catch(function (error){
-                console.log(error);
-            })
-    }
+    // componentDidMount() {
+    //     axios.get('mongodb://development:thisisatest1@ds119984.mlab.com:19984/heroku_7th1x771/todos')
+    //         .then(response => {
+    //             this.setState({ todos: response.data });
+    //         })
+    //         .catch(function (error){
+    //             console.log(error);
+    //         })
+    // }
 
     todoList() {
         return this.state.todos.map(function(currentTodo, i){

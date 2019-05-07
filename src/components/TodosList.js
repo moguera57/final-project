@@ -21,7 +21,7 @@ export default class TodosList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/todos/')
+        axios.get('mongodb://development:thisisatest1@ds119984.mlab.com:19984/heroku_7th1x771/todos')
             .then(response => {
                 this.setState({ todos: response.data });
             })

@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
+const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const PORT = process.env.PORT || 4000;
 let Todo = require('./todo.model.js');
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 mongoose.connect('mongodb://development:thisisatest1@ds119984.mlab.com:19984/heroku_7th1x771/todos', { useNewUrlParser: true });
 const connection = mongoose.connection;

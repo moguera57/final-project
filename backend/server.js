@@ -10,7 +10,7 @@ let Todo = require('./todo.model.js');
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static('static'));
 
 if(process.env.NODE_ENV === 'production'){
     //set static folder

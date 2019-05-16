@@ -53,7 +53,7 @@ export default class CreateTodo extends Component {
             todo_completed: this.state.todo_completed
         };
 
-        axios.post('/todos/add', newTodo)
+        axios.post('http://localhost:4000/todos/add', newTodo)
             .then(res => console.log(res.data));
 
         this.setState({
@@ -71,7 +71,7 @@ export default class CreateTodo extends Component {
             <h3>Create New Todo</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group"> 
-                    <label>Description: </label>
+                    <label>Step: </label>
                     <input  type="text"
                             className="form-control"
                             value={this.state.todo_description}
@@ -79,7 +79,7 @@ export default class CreateTodo extends Component {
                             />
                 </div>
                 <div className="form-group">
-                    <label>Responsible: </label>
+                    <label>Detail: </label>
                     <input 
                             type="text" 
                             className="form-control"
@@ -87,41 +87,30 @@ export default class CreateTodo extends Component {
                             onChange={this.onChangeTodoResponsible}
                             />
                 </div>
-                <div>
-                    <div>
-                        <input  type="radio" 
-                                name="priorityOptions" 
-                                id="priorityLow" 
-                                value="Low"
-                                checked={this.state.todo_priority==='Low'} 
-                                onChange={this.onChangeTodoPriority}
-                                />
-                        <label>Low</label>
-                    </div>
-                    <div>
-                        <input  type="radio" 
-                                name="priorityOptions" 
-                                id="priorityMedium" 
-                                value="Medium" 
-                                checked={this.state.todo_priority==='Medium'} 
-                                onChange={this.onChangeTodoPriority}
-                                />
-                        <label>Medium</label>
-                    </div>
-                    <div>
-                        <input  type="radio" 
-                                name="priorityOptions" 
-                                id="priorityHigh" 
-                                value="High" 
-                                checked={this.state.todo_priority==='High'} 
-                                onChange={this.onChangeTodoPriority}
-                                />
-                        <label>High</label>
-                    </div>
+                <div className="form-group">
+                    <label>Priority: </label>
+                    <input 
+                            type="text" 
+                            className="form-control"
+                            value={this.state.todo_priority}
+                            onChange={this.onChangeTodoPriority}
+                            />
                 </div>
-
+                <div className="form-check">
+                    <input  className="form-check-input"
+                            id="completedCheckbox"
+                            type="checkbox"
+                            name="completedCheckbox"
+                            onChange={this.onChangeTodoCompleted}
+                            checked={this.state.todo_completed}
+                            value={this.state.todo_completed}
+                            />
+                    <label className="form-check-label" htmlFor="completedCheckbox">
+                        Completed
+                    </label>                        
+                </div>
                 <div>
-                    <input type="submit" value="Create Todo" className="btn btn-primary" />
+                    <input type="submit" value="Create Item" className="btn btn-primary" />
                 </div>
             </form>
         </div>

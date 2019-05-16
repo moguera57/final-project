@@ -1,33 +1,20 @@
 const express = require('express');
 const app = express();
-const path = require('path');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const PORT = process.env.PORT || 4000;
-let Todo = require('./todo.model.js');
+const mongoose = require('mongoose');
+const PORT = 4000;
+let Todo = require('./todo.model');
 
 app.use(cors());
 app.use(bodyParser.json());
-
-app.use(express.static('static'));
-
-if(process.env.NODE_ENV === 'production'){
-    //set static folder
-    app.use(express.static('client/build'));
-}
-app.get('*',(req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
-
-mongoose.connect('mongodb://development:thisisatest1@ds119984.mlab.com:19984/heroku_7th1x771', { useNewUrlParser: true });
+mongoose.connect('mongodb://mog:TestPassword1@ds119984.mlab.com:19984/heroku_7th1x771', { useNewUrlParser: true });
 const connection = mongoose.connection;
-
-const todoRoutes = express.Router();
-
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
+
+const todoRoutes = express.Router();
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
@@ -80,6 +67,17 @@ todoRoutes.route('/update/:id').post(function(req, res) {
             .catch(err => {
                 res.status(400).send("Update not possible");
             });
+        }
+    });
+});
+
+todoRoutes.route('/update/:id').post(function(req, res) {
+    Todo.findByIdAndRemove(req.params.id, function(err, todo) {
+        if (!todo) {
+            res.status(404).send("data is not found");
+        }
+        else {            
+            res.status(200).json({'todo': 'todo added successfully'});
         }
     });
 });

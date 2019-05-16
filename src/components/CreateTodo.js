@@ -12,9 +12,9 @@ export default class CreateTodo extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            todo_description: 'Test Desc',
-            todo_responsible: 'Test Resp',
-            todo_priority: 'Test Prio',
+            todo_description: 'Step Information',
+            todo_responsible: 'Details',
+            todo_priority: 'Importance',
             todo_completed: false
         }
     }
@@ -68,7 +68,7 @@ export default class CreateTodo extends Component {
 
         return (
             <div style={{marginTop: 10}}>
-            <h3>Create New Todo</h3>
+            <h3>Create New Step</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group"> 
                     <label>Step: </label>

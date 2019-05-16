@@ -1,3 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
+html{
+  background: linear-gradient(#fff, #ddd);
+  height: 100%;
+}
+
+.body{
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px 20px;
+  font-family: 'roboto';
+  background: #fff;
+  box-shadow: #444 1px 1px 5px;
+}
+
+.header{
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-family: 'open sans condensed';
+  background: #fff;
+  padding: 1px 20px;
+  font-size: 25px;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: #444 1px 1px 5px;
+
+}
+
+.btn{
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  background: rgb(160, 127, 214);
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
 .App {
   text-align: center;
 }
@@ -36,4 +81,5 @@ form{
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
